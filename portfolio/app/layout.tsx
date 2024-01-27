@@ -14,12 +14,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  team: blogs,
-  analytics: schedule,
+  blogs,
+  schedule
 }: Readonly<{
   children: React.ReactNode
-  analytics: React.ReactNode
-  team: React.ReactNode
+  schedule: React.ReactNode
+  blogs: React.ReactNode
 }>) {
   return (
     <html lang="en">
