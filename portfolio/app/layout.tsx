@@ -16,11 +16,11 @@ export default function RootLayout({
   children,
   blogs,
   schedule
-}: Readonly<{
+}: /* Readonly< */{
   children: React.ReactNode
   schedule: React.ReactNode
   blogs: React.ReactNode
-}>) {
+}/* > */) {
   return (
     <html lang="en">
       <head>
