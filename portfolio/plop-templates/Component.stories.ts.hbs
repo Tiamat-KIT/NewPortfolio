@@ -1,0 +1,18 @@
+import type {Meta,StoryObj} from "@storybook/react"
+import {{ UpperPascalCase }} from "./{{UpperPascalCase}}"
+
+const {{UpperPascalCase}}Meta = {
+    title: "Example/{{UpperPascalCase}}",
+    component: {{UpperPascalCase}},
+    parameters: {
+        layout: 'centered',
+    },
+    tags: ['autodocs'],
+} satisfies Meta<typeof {{UpperPascalCase}}>
+
+export default {{UpperPascalCase}}Meta
+type {{UpperPascalCase}}Story = StoryObj<typeof {{UpperPascalCase}}Meta>
+
+export const Example{{UpperPascalCase}}Story: {{UpperPascalCase}}Story = {
+    args: {},
+} 

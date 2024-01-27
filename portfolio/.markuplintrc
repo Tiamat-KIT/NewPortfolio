@@ -1,0 +1,44 @@
+{
+  "rules": {
+    "deprecated-attr": true,
+    "attr-duplication": true,
+    "character-reference": true,
+    "disallowed-element": true,
+    "ineffective-attr": false,
+    "deprecated-element": true,
+    "case-sensitive-tag-name": false,
+    "id-duplication": true,
+    "case-sensitive-attr-name": false,
+    "attr-value-quotes": false,
+    "class-naming": false,
+    "label-has-control": false,
+    "end-tag": false,
+    "no-empty-palpable-content": false,
+    "no-boolean-attr-value": false,
+    "doctype": "always",
+    "landmark-roles": false,
+    "invalid-attr": true,
+    "permitted-contents": true,
+    "no-default-value": false,
+    "placeholder-label-option": true,
+    "require-accessible-name": true,
+    "no-refer-to-non-existent-id": true,
+    "no-use-event-handler-attr": false,
+    "require-datetime": true,
+    "required-attr": true,
+    "required-element": true,
+    "required-h1": true,
+    "use-list": false,
+    "wai-aria": true,
+    "no-hard-code-id": false
+  },
+  "extends": [
+    "markuplint:recommended-react"
+  ],
+  "parser": {
+    ".[jt]sx$": "@markuplint/jsx-parser"
+  },
+  "specs": {
+    ".[jt]sx$": "@markuplint/react-spec"
+  }
+}
