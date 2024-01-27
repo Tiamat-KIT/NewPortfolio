@@ -1,3 +1,3 @@
 export default function Schedule(){
-    return <></>
+    return <><p>Schedule</p></>
 }
