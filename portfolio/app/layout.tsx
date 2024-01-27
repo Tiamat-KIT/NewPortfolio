@@ -23,8 +23,8 @@ export default function RootLayout(props: LayoutType) {
         <ConvexClientProvider>
           <MantineProvider>
             {props.children}
-            {props.blogs}
-            {props.schedule}
+            {props.Blogs}
+            {props.Schedule}
           </MantineProvider>
         </ConvexClientProvider>
       </body>

@@ -1,4 +1,4 @@
-type LayoutDirectories = "children" | "blogs" | "schedule"
+type LayoutDirectories = "children" | "Blogs" | "Schedule"
 type LayoutType = {
     [key in LayoutDirectories]: React.ReactNode
 }
