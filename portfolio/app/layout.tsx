@@ -14,8 +14,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  team: blogs,
+  analytics: schedule,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
+  analytics: React.ReactNode
+  team: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -26,6 +30,8 @@ export default function RootLayout({
         <ConvexClientProvider>
           <MantineProvider>
             {children}
+            {blogs}
+            {schedule}
           </MantineProvider>
         </ConvexClientProvider>
       </body>
