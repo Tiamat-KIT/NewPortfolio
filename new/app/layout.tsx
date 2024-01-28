@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/stories/Navbar";
+import Footer from "@/stories/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,14 +13,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  Aside
 }: Readonly<{
   children: React.ReactNode;
+  Aside: React.ReactNode;
 }>) {
   return (
     <html lang="ja">
       <body className={inter.className}>
         <Navbar />
         {children}
+        <aside>
+          {Aside}
+        </aside>
+        <Footer />
       </body>
     </html>
   );
