@@ -14,5 +14,5 @@ export default NavbarMeta
 type NavbarStory = StoryObj<typeof NavbarMeta>
 
 export const ExampleNavbarStory: NavbarStory = {
-    // args: {},
+    args: {},
 } 
