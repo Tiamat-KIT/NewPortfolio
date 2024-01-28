@@ -1,11 +1,18 @@
 import '@mantine/core/styles.css';
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { 
+  AppShell,
+  Text, 
+  ColorSchemeScript, 
+  Flex, 
+  MantineProvider, 
+  Space,
+  MantineBreakpoint,
+} from '@mantine/core';
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ConvexClientProvider from "@/ClientProvider";
-import LayoutType from '@/type/LayoutProps';
-
+import Navbar from '@/stories/Navbar';
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,19 +25,32 @@ export default function RootLayout({children,Blogs,Schedule}:{
   Blogs: React.ReactNode,
   Schedule: React.ReactNode
 }) {
+
+
   return (
-    <html lang="en">
+    <html lang="ja">
       <head>
         <ColorSchemeScript />
       </head>
       <body className={inter.className}>
-        <ConvexClientProvider>
+        {/* <ConvexClientProvider> */}
           <MantineProvider>
-            {children}
-            {Blogs}
-            {Schedule}
+          <Navbar />
+          <Space h="xl" />
+              <Flex 
+                mih={50}
+                miw={75}
+                gap={50}
+                justify="center"
+                align="center"
+                direction="row"
+                wrap="wrap">
+                <div>{Blogs}</div>
+                <div>{Schedule}</div>
+              </Flex>
+              {children}
           </MantineProvider>
-        </ConvexClientProvider>
+        {/* </ConvexClientProvider> */}
       </body>
     </html>
   );

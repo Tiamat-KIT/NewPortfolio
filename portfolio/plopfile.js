@@ -1,9 +1,9 @@
-const fs = require("fs")
+/* const fs = require("fs")
 
 const comp_dir = fs
-    .readdirSync("./components/Auto")
+    .readdirSync("./stories")
     .map((it) => ({name:it,value: it}))
-
+ */
 
 module.exports = (
     /** @type {import('plop').NodePlopAPI} */
@@ -12,12 +12,12 @@ module.exports = (
     // create your generators here
     plop.setGenerator('component', {
         description: 'create component file',
-        prompts: [{
+        prompts: [/* {
             type: "list",
             name: "feature",
             message: "feature name please",
             choices: comp_dir
-        },{
+        }, */{
             type: "input",
             name: "UpperPascalCase",
             message: "component UpperPascalCase please"
