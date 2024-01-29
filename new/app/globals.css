@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h3 {
+        @apply text-xl;
+    }
+    li {
+        @apply list-disc;
+    }
+    body {
+        @apply bg-sky-100/10;
+    }
+}
