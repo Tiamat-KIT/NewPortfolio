@@ -109,7 +109,7 @@ export default async function RootLayout({
           </div>
           <div className="divider divider-horizontal" />
             <aside className="basis-4/12 pt-5">
-                <div className="bg-white shadow-lg rounded-lg p-3">
+                <div className="bg-base-100 shadow-lg rounded-lg p-3">
                   <h3 className="hero">ブログ</h3>
                   <PagenateBlog Blog={DevContentList} />
                 </div>
