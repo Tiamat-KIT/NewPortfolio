@@ -1,3 +1,5 @@
+import Card from "@/stories/Card"
+
 export default function Aside(){
     type DevContentType = {
         description: string,
@@ -19,23 +21,20 @@ export default function Aside(){
             <div className="flex gap-3">
                 {DevContentList.map((DevContent,idx) => {
                     return (
-                        <div className="card card-compact w-40 bg-base-100 shadow-xl" key={idx}>
-                            <figure>
-                                <img alt="Sample" src="https://picsum.photos/id/1005/400/250" className="rounded-t-lg" />
-                            </figure>
-                            <div className="card-body">
-                                <h2 className="card-title">{DevContent.description}</h2>
-                                <div className="justify-end card-actions">
-                                    <div>
-                                        {DevContent.tag.map((tag,tag_idx) => {
-                                            return (
-                                                <button className="badge" key={tag_idx}>{tag}</button>
-                                            )
-                                        })}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <Card
+                            key={idx}
+                            title={DevContent.description}
+                            optionClass="shadow-xl bg-base-100"
+                            Button={
+                                DevContent.tag.map((tag,tag_idx) => {
+                                    return (
+                                        <div className="flex flex-col" key={idx}>
+                                            <button className="badge" key={tag_idx}>{tag}</button>
+                                        </div>
+                                    )
+                                })
+                            }
+                        />
                     )
                 })}
             </div>

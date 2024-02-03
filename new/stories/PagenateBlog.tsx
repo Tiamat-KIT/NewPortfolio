@@ -27,7 +27,7 @@ export default function PagenateBlog({Blog}:{Blog: BlogType[][]}):JSX.Element{
             <div className="container mx-auto px-16">
                 <div className="join">
                     <button className="join-item btn btn-ghost" onClick={CountDown}>«</button>
-                    <button className="join-item btn btn-ghost">Page {Pagenation}</button>
+                    <button className="join-item btn btn-ghost">Page {Pagenation + 1}</button>
                     <button className="join-item btn btn-ghost" onClick={CountUp}>»</button>
                 </div>
             </div>

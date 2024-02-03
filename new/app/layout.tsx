@@ -6,19 +6,22 @@ import Footer from "@/stories/Footer";
 import { BlogType,getList,getReportLatest,getReportDetail } from "@/libs/microcms";
 import PagenateBlog from "@/stories/PagenateBlog";
 import parse from 'html-react-parser'
+import Container from "@/stories/Container";
+import Card from "@/stories/Card";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: {
-    template: "%s | 泡沫Portfolio",
+  title: process.env.NODE_ENV === "production" ? {
+    template: `泡沫Portfolio`,
     default: "Home | 泡沫Portfolio",
-  },
-  description: "泡沫京水（本名とは別）のポートフォリオサイトです。研究の進捗とか一週間のうちに何をしているかを雑多に書いています。",
+  } : `Developing`,
+  description: process.env.NODE_ENV === "production" ? "泡沫京水（本名とは別）のポートフォリオサイトです。研究の進捗とか一週間のうちに何をしているかを雑多に書いています。" : "開発中",
   authors: {name: "泡沫京水",url: "https://twitter.com/CYUVi1336"},
   generator: "react, nextjs",
   creator: "泡沫京水",
   publisher: "泡沫京水",
+  icons: process.env.NODE_ENV === "production" ? "./utakata.ico" : "./dev.svg"
 };
 
 export default async function RootLayout({
@@ -75,37 +78,29 @@ export default async function RootLayout({
   ]
   return (
     <html lang="ja">
-      <head>
-        <link rel="icon" href="/utakata.ico" />
-      </head>
       <body className={inter.className}>
         <Navbar />
-        <div className="comtainer mx-auto px-6">
+        <Container>
         <div className="flex">
           <div className="basis-8/12">
             <div className="container mx-auto px-[0.5px]">
               {children}
             </div>
-            <div className="container mx-auto p-2">
-              <div className="py-12">
-                <div className="card shadow-xl bg-base-100">
-                  <div className="card-body">
-                    <h2 className="card-title">最新の研究レポート -{LatestReport.title}-</h2>
-                    {parse(LatestReportDetail.body)}
-                    <div className="justify-end card-actions">
-                      <div>
-                        <button className="badge badge-outline">{LatestReportDetail.tag}</button>
-                      </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
+            <Container size="sm">
+              <div className="py-6">
+                <Card 
+                  title={`最新の研究レポート -${LatestReport.title}-`} 
+                  description={parse(LatestReportDetail.body)} 
+                  Button={<button className="badge badge-outline">{LatestReportDetail.tag}</button>}
+                  optionClass="shadow-xl bg-base-100"/>
+                </div>
               <div className="grid grid-cols-1 gap-4">
                 <span>
                   {DevContent}
                 </span>
               </div>
-            </div>
+              
+            </Container>
           </div>
           <div className="divider divider-horizontal" />
             <aside className="basis-4/12 pt-5">
@@ -114,7 +109,7 @@ export default async function RootLayout({
                   <PagenateBlog Blog={DevContentList} />
                 </div>
                 
-              <div className="overflow-x-auto card bg-base-100 shadow-lg mt-6">
+              <div className="overflow-x-auto card bg-base-100 shadow-lg my-6">
                 <div className="card-body">
                   <h3 className="card-title">最近の泡沫の一週間</h3>
                   <table className="table ">
@@ -140,7 +135,7 @@ export default async function RootLayout({
               </div>
             </aside>
           </div>
-        </div>
+        </Container>
         <Footer />
       </body>
     </html>

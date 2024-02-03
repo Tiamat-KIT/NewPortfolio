@@ -1,7 +1,24 @@
 import "../app/globals.css"
-export default function {{ UpperPascalCase }}(){
+import {tv,type VariantProps} from "tailwind-variants"
+
+const {{ UpperPascalCase }}Class = tv({
+    base: "",
+    /*
+        variants: { } ,
+        defaultVariants: { },
+    */
+})
+
+type {{ UpperPascalCase }}Variants = VariantProps<typeof {{ UpperPascalCase }}Class>
+
+interface {{ UpperPascalCase }}Props extends {{ UpperPascalCase }}Variants {
+    children?: React.ReactNode
+}
+
+export default function {{ UpperPascalCase }}(plop: {{ UpperPascalCase }}Props){
     return (
-        <div>
+        <div className={ {{ UpperPascalCase }}Class(plop) }>
+            {plop.children}
         </div>
     )
 }
