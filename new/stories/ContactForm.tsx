@@ -1,5 +1,5 @@
 "use client";
-import React,{useEffect, useRef} from "react";
+import React,{useEffect, useRef, useState} from "react";
 import {z} from "zod";
 import "../app/globals.css"
 import Container from "./Container";
@@ -11,31 +11,23 @@ const ContactFormSchema = z.object({
 });
 
 export default function ContactForm(){
-    const NameRef = useRef<HTMLInputElement>(null);
-    const EmailRef = useRef<HTMLInputElement>(null);
-    const MessageRef = useRef<HTMLTextAreaElement>(null);
-    type ErrorType = {
-        message?: string[]
-        name?: string[] 
-        email?: string[]
-    }
-    const ErrorRef = useRef<ErrorType>();
-    useEffect((
-    ) => {
-        const Result = ContactFormSchema.safeParse({
-            name: NameRef.current?.value as string,
-            email: EmailRef.current?.value as string,
-            message: MessageRef.current?.value as string
-        });
-        if(Result.success){
+    /* const [FormResult,setFormResult] = useState(
+        ContactFormSchema.safeParse({
+            name: (document.getElementById("name") as HTMLInputElement).value,
+            email: (document.getElementById("email") as HTMLInputElement).value,
+            message: (document.getElementById("message") as HTMLTextAreaElement).value
+        })
+    )
+
+    useEffect(() => {
+        if(FormResult!.success){
             (document.getElementById("submit") as HTMLButtonElement).classList.remove("btn-disabled");
             (document.getElementById("submit") as HTMLButtonElement).disabled = false;
         }else {
             (document.getElementById("submit") as HTMLButtonElement).classList.add("btn-disabled");
             (document.getElementById("submit") as HTMLButtonElement).disabled = true;
-            ErrorRef.current = Result.error.formErrors.fieldErrors;
         }
-    },[NameRef.current?.value,EmailRef.current?.value,MessageRef.current?.value]);
+    },[]); */
 
     return (
         <Container size="aside">
@@ -51,10 +43,9 @@ export default function ContactForm(){
                         id="name"
                         name="name"
                         placeholder="Your-Name"
-                        className={`input input-bordered max-w-xs ${ErrorRef.current?.name ? "input-error" : ""}`}
-                        ref={NameRef}
+                        className={`input input-bordered max-w-xs`} /* ${Result.error.formErrors.fieldErrors?.name ? "input-error" : ""} */
                         />
-                    {ErrorRef.current?.name && <div className="text-red-500">{ErrorRef.current.name[0]}</div>}
+                    {/* {FormResult!.error.formErrors.fieldErrors?.name && <div className="text-red-500">{Result.error.formErrors.fieldErrors.name[0]}</div>} */}
                 </div>
                 <div>
                     <input
@@ -62,20 +53,18 @@ export default function ContactForm(){
                         name="email"
                         type="email"
                         placeholder="Email-Address"
-                        className={`input input-bordered max-w-xs ${ErrorRef.current?.email ? "input-error" : ""}`}
-                        ref={EmailRef}
+                        className={`input input-bordered max-w-xs`} /* ${Result.error.formErrors.fieldErrors?.email ? "input-error" : ""} */
                         />
-                    {ErrorRef.current?.email && <div className="text-red-500">{ErrorRef.current.email[0]}</div>}
+                    {/* {FormResult!.error.formErrors.fieldErrors?.email && <div className="text-red-500">{Result.error.formErrors.fieldErrors.email[0]}</div>} */}
                 </div>
                 <div>
                     <textarea
                         id="message"
                         name="message"
                         placeholder="Description"
-                        className={`textarea textarea-bordered textarea-md ${ErrorRef.current?.message ? "textarea-error" : ""}`} 
-                        ref={MessageRef}></textarea>
-                    {ErrorRef.current?.message && <div className="text-red-500">{ErrorRef.current.message[0]}</div>}
-                </div>
+                        className={`textarea textarea-bordered textarea-md`} /* ${Result.error.formErrors.fieldErrors?.message ? "textarea-error" : ""} */ 
+                        ></textarea>
+                    {/*{FormResult!.error.formErrors.fieldErrors?.message && <div className="text-red-500">{Result.error.formErrors.fieldErrors.message[0]}</div>} */}                </div>
                 <button id="submit" type="submit" disabled className="btn btn-info btn-disabled max-w-xs">送信</button>
             </form>
         </Container>
