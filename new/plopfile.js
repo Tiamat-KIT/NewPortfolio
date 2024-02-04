@@ -21,5 +21,28 @@ module.exports = (
                 templateFile: "./plop-templates/Component.stories.ts.hbs"
             }
         ]
+    }),
+    plop.setGenerator("readme",{
+        description: "Create Readme File",
+        prompts: [
+            {
+                type: "checkbox",
+                name:"Use_Lib_Frame",
+                message: "Use Library And FrameWork All Select",
+                choices: ["React","Vue","Angular","Next","Nuxt","Gatsby","Svelte","Jquery","VanillaJS"]
+            }
+        ],
+        actions:[
+            {
+                type: "add",
+                path: "./PLOP_GEN_README.md",
+                templateFile: "./plop-templates/README.md.hbs"
+            },
+            {
+                type: "append",
+                path: "./PLOP_GEN_README.md",
+                templateFile: "### {{Use_Lib_Frame}}\n\n",
+            }
+        ]
     })
 }
