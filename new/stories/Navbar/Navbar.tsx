@@ -9,7 +9,7 @@ import { RSS } from "@/type/RSS";
 // import SendEmail from "@/public/MingcuteMailSendLine.svg"
 
 export default async function Navbar(){
-    const ZennRSSFeed = await (await fetch(`${process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL : /* "http://localhost:3000" */ "http://127.0.0.1:3000"}/api/zenn-posts`)).json() as RSS[]
+    const ZennRSSFeed = await (await fetch(`${process.env.NEXT_PUBLIC_URL ? process.env.NEXT_PUBLIC_URL : /* "http://localhost:3000" */ "http://127.0.0.1:3000"}/api/zenn-posts`)).json() as RSS[]
     return (
         <nav className="navbar bg-gradient-to-r from-base-200 from-10% via-base-100 via-30% to-base-300 to-90%  border-b-2 border-black" style={{borderRadius: "0% 0% 40% 40%"}}>
             <div className="navbar-start">
