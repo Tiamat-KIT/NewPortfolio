@@ -1,8 +1,8 @@
 "use client";
 import React,{useEffect, useRef, useState} from "react";
 import {z} from "zod";
-import "../app/globals.css"
-import Container from "./Container";
+import "../../app/globals.css"
+import Container from "../Container/Container";
 
 const ContactFormSchema = z.object({
     name: z.string().min(1,{message: "コードネームじゃないんですから..."}).max(50,{message: "名前が長すぎます"}),

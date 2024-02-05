@@ -1,4 +1,4 @@
-import BreadCrumbs from "@/stories/BreadCrumbs";
+import BreadCrumbs from "@/stories/BreadCrumbs/BreadCrumbs";
 import Link from "next/link";
 
 export default function Research() {

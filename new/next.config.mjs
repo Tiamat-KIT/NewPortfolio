@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        typedRoutes: true
+        typedRoutes: true,
+        swcPlugins: [["@swc-jotai/react-refresh", {}]]
     },
     env: {
         NEXT_PUBLIC_NEWT_FORM_ENDPOINT: "https://utakataportfolio.form.newt.so/v1/GRMXHJlGT"

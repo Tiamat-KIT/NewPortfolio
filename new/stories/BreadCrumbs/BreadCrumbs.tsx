@@ -1,4 +1,4 @@
-import "../app/globals.css"
+import "../../app/globals.css"
 export type BreadCrumbsProps = {
     PathName: string,
     PathRoute: string
