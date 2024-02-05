@@ -1,5 +1,5 @@
 "use client"
-import "../app/globals.css"
+import "../../app/globals.css"
 import {tv,type VariantProps} from "tailwind-variants"
 
 const ModalClass = tv({

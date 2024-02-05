@@ -1,6 +1,6 @@
 "use client";
-import { use, useEffect, useState } from "react";
-import "../app/globals.css"
+import { useState } from "react";
+import "../../app/globals.css"
 import { BlogType } from "@/libs/microcms";
 export default function PagenateBlog({Blog}:{Blog: BlogType[][]}):JSX.Element{
     const [Pagenation,setPagenation] = useState<number>(0);

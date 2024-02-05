@@ -1,6 +1,6 @@
 import Image from "next/image";
 import "./globals.css"
-import BreadCrumbs from "@/stories/BreadCrumbs";
+import BreadCrumbs from "@/stories/BreadCrumbs/BreadCrumbs";
 import Link from "next/link";
 export default function Home() {
   const NowTime = new Date();

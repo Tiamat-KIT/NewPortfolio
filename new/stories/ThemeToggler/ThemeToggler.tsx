@@ -1,6 +1,6 @@
 "use client";
 import { useLayoutEffect, useState } from "react"
-import "../app/globals.css"
+import "../../app/globals.css"
 import {tv,type VariantProps} from "tailwind-variants"
 
 const ThemeTogglerClass = tv({

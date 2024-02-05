@@ -1,4 +1,4 @@
-import Card from "@/stories/Card"
+import Card from "@/stories/Card/Card"
 
 export default function Aside(){
     type DevContentType = {
