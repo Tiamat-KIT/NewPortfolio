@@ -14,5 +14,7 @@ export default RssAlertBellMeta
 type RssAlertBellStory = StoryObj<typeof RssAlertBellMeta>
 
 export const ExampleRssAlertBellStory: RssAlertBellStory = {
-    args: {},
+    args: {
+        ZennRSS: []
+    },
 } 
